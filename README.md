@@ -1,3 +1,5 @@
-# Introduction
+# Cryptocurrency web app deployed on Heroku
 
-Deploying an app built on streamlit that scrapes historical data from coinmarketcap and does exploratory analysis.
+In this repository, I am deploying an app built on streamlit that scrapes historical data of the top 20 cryptocurrencies from coinmarketcap and does exploratory analysis on the data.
+
+The deployed web app is live at https://st-crypto-prices.herokuapp.com/
