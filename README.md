@@ -1,3 +1,3 @@
-# Crypto-price-heroku
+# Introduction
 
 Deploying an app built on streamlit that scrapes historical data from coinmarketcap and does exploratory analysis.
