@@ -58,7 +58,7 @@ sun = today - datetime.timedelta(idx)
 date = str(sun).replace('-', '')
 
 # Web scraping of CoinMarketCap data
-@st.cache
+@st.cache_data
 def load_data():
 
     # dataframe columns
@@ -112,7 +112,7 @@ def load_data():
         percent_1h = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-1-h'})
         crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_1h is None:
-            crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
+            crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
         else:
             crypto_percent_1h = crypto_percent_1h.get_text().lstrip('<').rstrip('%').replace(',', '')
 
@@ -120,7 +120,7 @@ def load_data():
         percent_24h = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-24-h'})
         crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_24h is None:
-            crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
+            crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
         else:
             crypto_percent_24h = crypto_percent_24h.get_text().lstrip('<').rstrip('%').replace(',', '')
 
@@ -128,7 +128,7 @@ def load_data():
         percent_7d = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-7-d'})
         crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_7d is None:
-            crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
+            crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
         else:
             crypto_percent_7d = crypto_percent_7d.get_text().lstrip('<').rstrip('%').replace(',', '')
 
