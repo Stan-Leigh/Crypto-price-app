@@ -114,7 +114,7 @@ def load_data():
         if crypto_percent_1h is None:
             crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
         else:
-            crypto_percent_1h = crypto_percent_1h.get_text().rstrip('%').replace(',', '')
+            crypto_percent_1h = crypto_percent_1h.get_text().lstrip('<').rstrip('%').replace(',', '')
 
         # percent 24h
         percent_24h = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-24-h'})
@@ -122,7 +122,7 @@ def load_data():
         if crypto_percent_24h is None:
             crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
         else:
-            crypto_percent_24h = crypto_percent_24h.get_text().rstrip('%').replace(',', '')
+            crypto_percent_24h = crypto_percent_24h.get_text().lstrip('<').rstrip('%').replace(',', '')
 
         # percent 7d
         percent_7d = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-7-d'})
@@ -130,7 +130,7 @@ def load_data():
         if crypto_percent_7d is None:
             crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-positive'}).get_text().rstrip('%').replace(',', '')
         else:
-            crypto_percent_7d = crypto_percent_7d.get_text().rstrip('%').replace(',', '')
+            crypto_percent_7d = crypto_percent_7d.get_text().lstrip('<').rstrip('%').replace(',', '')
 
         coin_name.append(crypto_name)
         coin_symbol.append(crypto_symbol)
