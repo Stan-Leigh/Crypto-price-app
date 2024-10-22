@@ -280,7 +280,7 @@ else:
     col3.pyplot(plt)
 
 
-def push_data_to_postgres(df):
+# def push_data_to_postgres(df):
 
     # config = ConfigParser()
     # config.read('config.ini')
@@ -293,11 +293,11 @@ def push_data_to_postgres(df):
     # db_name = config.get('postgres', 'db_name')
     # schema_name = config.get('postgres', 'schema_name')
     # table_name = config.get('postgres', 'table_name')
-    db_user = st.secrets['db_user']
-    db_password = st.secrets['db_password']
-    db_host = st.secrets['db_host']
-    db_port = st.secrets['db_port']
-    db_name = st.secrets['db_name']
+    # db_user = st.secrets['db_user']
+    # db_password = st.secrets['db_password']
+    # db_host = st.secrets['db_host']
+    # db_port = st.secrets['db_port']
+    # db_name = st.secrets['db_name']
     # schema_name = st.secrets['schema_name']
     # table_name = st.secrets['table_name']
 
@@ -309,20 +309,20 @@ def push_data_to_postgres(df):
 
     # df.to_sql(table_name, engine, schema=schema_name, if_exists='append', index=False)
 
-    # Connect to the PostgreSQL database server
-    conn = psycopg2.connect(host=db_host,
-                        port=db_port,
-                        database=db_name,
-                        user= db_user,
-                        password= db_password)
+    # # Connect to the PostgreSQL database server
+    # conn = psycopg2.connect(host=db_host,
+    #                     port=db_port,
+    #                     database=db_name,
+    #                     user= db_user,
+    #                     password= db_password)
 
-    conn.autocommit = True
+    # conn.autocommit = True
 
-    records = df.values.tolist()
+    # records = df.values.tolist()
 
-    cursor = conn.cursor()
-    cursor.executemany(f"INSERT INTO crypto_prices VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", records)
+    # cursor = conn.cursor()
+    # cursor.executemany(f"INSERT INTO crypto_prices VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", records)
 
 
-push_data_to_postgres(df)
-logging.info('Data has been pushed to postgres')
+# push_data_to_postgres(df)
+# logging.info('Data has been pushed to postgres')
