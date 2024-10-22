@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 import datetime
-# import psycopg2
+import psycopg2
 from sqlalchemy import create_engine
 from configparser import ConfigParser
 import logging, logging.handlers
@@ -282,10 +282,10 @@ else:
 
 def push_data_to_postgres(df):
 
-    config = ConfigParser()
-    config.read('config.ini')
+    # config = ConfigParser()
+    # config.read('config.ini')
     
-    # Parameters for connecting to PostgreSQL
+    # # Parameters for connecting to PostgreSQL
     # db_user = config.get('postgres', 'db_user')
     # db_password = config.get('postgres', 'db_password')
     # db_host = config.get('postgres', 'db_host')
@@ -298,16 +298,30 @@ def push_data_to_postgres(df):
     db_host = st.secrets['db_host']
     db_port = st.secrets['db_port']
     db_name = st.secrets['db_name']
-    schema_name = st.secrets['schema_name']
-    table_name = st.secrets['table_name']
+    # schema_name = st.secrets['schema_name']
+    # table_name = st.secrets['table_name']
 
-    # Create a connection string for SQLAlchemy
-    connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
+    # # Create a connection string for SQLAlchemy
+    # connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 
-    # Create a SQLAlchemy engine
-    engine = create_engine(connection_string)
+    # # Create a SQLAlchemy engine
+    # engine = create_engine(connection_string)
 
-    df.to_sql(table_name, engine, schema=schema_name, if_exists='append', index=False)
+    # df.to_sql(table_name, engine, schema=schema_name, if_exists='append', index=False)
+
+    # Connect to the PostgreSQL database server
+    conn = psycopg2.connect(host=db_host,
+                        port=db_port,
+                        database=db_name,
+                        user= db_user,
+                        password= db_password)
+
+    conn.autocommit = True
+
+    records = df.values.tolist()
+
+    cursor = conn.cursor()
+    cursor.executemany(f"INSERT INTO crypto_prices VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", records)
 
 
 push_data_to_postgres(df)
