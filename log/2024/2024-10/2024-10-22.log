@@ -735,3 +735,8 @@
 2024/10/22 08:03:30 PM - DEBUG - STREAM b'IDAT' 131 57351
 2024/10/22 08:03:30 PM - INFO - Data has been pushed to postgres
 2024/10/22 08:04:07 PM - INFO - Data has been scraped from coinmarketcap
+2024/10/22 08:04:07 PM - DEBUG - STREAM b'IHDR' 16 13
+2024/10/22 08:04:07 PM - DEBUG - STREAM b'tEXt' 41 57
+2024/10/22 08:04:07 PM - DEBUG - STREAM b'pHYs' 110 9
+2024/10/22 08:04:07 PM - DEBUG - STREAM b'IDAT' 131 57351
+2024/10/22 08:04:08 PM - INFO - Data has been pushed to postgres
