@@ -1,0 +1,182 @@
+2024/10/22 06:29:12 PM - DEBUG - STREAM b'IHDR' 16 13
+2024/10/22 06:29:12 PM - DEBUG - STREAM b'tEXt' 41 57
+2024/10/22 06:29:12 PM - DEBUG - STREAM b'pHYs' 110 9
+2024/10/22 06:29:12 PM - DEBUG - STREAM b'IDAT' 131 57351
+2024/10/22 06:38:43 PM - INFO - Data has been scraped from coinmarketcap
+2024/10/22 06:38:44 PM - DEBUG - STREAM b'IHDR' 16 13
+2024/10/22 06:38:44 PM - DEBUG - STREAM b'tEXt' 41 57
+2024/10/22 06:38:44 PM - DEBUG - STREAM b'pHYs' 110 9
+2024/10/22 06:38:44 PM - DEBUG - STREAM b'IDAT' 131 57351
+2024/10/22 07:06:02 PM - DEBUG - Starting new HTTPS connection (1): coinmarketcap.com:443
+2024/10/22 07:06:06 PM - DEBUG - https://coinmarketcap.com:443 "GET /historical/20241020/ HTTP/1.1" 200 71126
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Bitcoin
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - BTC
+2024/10/22 07:06:06 PM - INFO - Extracted BTC crypto_market_cap - 1364208591012.11
+2024/10/22 07:06:06 PM - INFO - Extracted BTC crypto_price - 69001.71
+2024/10/22 07:06:06 PM - INFO - Extracted BTC crypto_volume - 18975847518.28
+2024/10/22 07:06:06 PM - INFO - Extracted BTC one hour percentage change - -0.24
+2024/10/22 07:06:06 PM - INFO - Extracted BTC twenty four hour percentage change - 0.93
+2024/10/22 07:06:06 PM - INFO - Extracted BTC seven days percentage change - 9.79
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Ethereum
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - ETH
+2024/10/22 07:06:06 PM - INFO - Extracted ETH crypto_market_cap - 330637820291.73
+2024/10/22 07:06:06 PM - INFO - Extracted ETH crypto_price - 2746.36
+2024/10/22 07:06:06 PM - INFO - Extracted ETH crypto_volume - 14559296241.72
+2024/10/22 07:06:06 PM - INFO - Extracted ETH one hour percentage change - -0.05
+2024/10/22 07:06:06 PM - INFO - Extracted ETH twenty four hour percentage change - 3.69
+2024/10/22 07:06:06 PM - INFO - Extracted ETH seven days percentage change - 11.29
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Tether USDt
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - USDT
+2024/10/22 07:06:06 PM - INFO - Extracted USDT crypto_market_cap - 120160212481.67
+2024/10/22 07:06:06 PM - INFO - Extracted USDT crypto_price - 0.9997
+2024/10/22 07:06:06 PM - INFO - Extracted USDT crypto_volume - 45409324314.37
+2024/10/22 07:06:06 PM - INFO - Extracted USDT one hour percentage change - 0.00
+2024/10/22 07:06:06 PM - INFO - Extracted USDT twenty four hour percentage change - -0.02
+2024/10/22 07:06:06 PM - INFO - Extracted USDT seven days percentage change - 0.01
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - BNB
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - BNB
+2024/10/22 07:06:06 PM - INFO - Extracted BNB crypto_market_cap - 88197683603.36
+2024/10/22 07:06:06 PM - INFO - Extracted BNB crypto_price - 605.52
+2024/10/22 07:06:06 PM - INFO - Extracted BNB crypto_volume - 1608355247.67
+2024/10/22 07:06:06 PM - INFO - Extracted BNB one hour percentage change - 0.09
+2024/10/22 07:06:06 PM - INFO - Extracted BNB twenty four hour percentage change - 1.26
+2024/10/22 07:06:06 PM - INFO - Extracted BNB seven days percentage change - 5.89
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Solana
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - SOL
+2024/10/22 07:06:06 PM - INFO - Extracted SOL crypto_market_cap - 78448218847.96
+2024/10/22 07:06:06 PM - INFO - Extracted SOL crypto_price - 166.94
+2024/10/22 07:06:06 PM - INFO - Extracted SOL crypto_volume - 2579198898.89
+2024/10/22 07:06:06 PM - INFO - Extracted SOL one hour percentage change - 0.04
+2024/10/22 07:06:06 PM - INFO - Extracted SOL twenty four hour percentage change - 4.57
+2024/10/22 07:06:06 PM - INFO - Extracted SOL seven days percentage change - 13.12
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - USDC
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - USDC
+2024/10/22 07:06:06 PM - INFO - Extracted USDC crypto_market_cap - 34999802324.63
+2024/10/22 07:06:06 PM - INFO - Extracted USDC crypto_price - 0.9999
+2024/10/22 07:06:06 PM - INFO - Extracted USDC crypto_volume - 3407729614.23
+2024/10/22 07:06:06 PM - INFO - Extracted USDC one hour percentage change - 0.01
+2024/10/22 07:06:06 PM - INFO - Extracted USDC twenty four hour percentage change - -0.01
+2024/10/22 07:06:06 PM - INFO - Extracted USDC seven days percentage change - 0.01
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - XRP
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - XRP
+2024/10/22 07:06:06 PM - INFO - Extracted XRP crypto_market_cap - 31055368832.25
+2024/10/22 07:06:06 PM - INFO - Extracted XRP crypto_price - 0.5477
+2024/10/22 07:06:06 PM - INFO - Extracted XRP crypto_volume - 692297810.62
+2024/10/22 07:06:06 PM - INFO - Extracted XRP one hour percentage change - 0.01
+2024/10/22 07:06:06 PM - INFO - Extracted XRP twenty four hour percentage change - 0.62
+2024/10/22 07:06:06 PM - INFO - Extracted XRP seven days percentage change - 3.03
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Dogecoin
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - DOGE
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE crypto_market_cap - 20808345467.29
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE crypto_price - 0.1421
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE crypto_volume - 1456913936.72
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE one hour percentage change - -0.64
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE twenty four hour percentage change - -1.69
+2024/10/22 07:06:06 PM - INFO - Extracted DOGE seven days percentage change - 27.62
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Toncoin
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - TON
+2024/10/22 07:06:06 PM - INFO - Extracted TON crypto_market_cap - 13598354106.90
+2024/10/22 07:06:06 PM - INFO - Extracted TON crypto_price - 5.3549
+2024/10/22 07:06:06 PM - INFO - Extracted TON crypto_volume - 127736555.34
+2024/10/22 07:06:06 PM - INFO - Extracted TON one hour percentage change - 0.26
+2024/10/22 07:06:06 PM - INFO - Extracted TON twenty four hour percentage change - 1.65
+2024/10/22 07:06:06 PM - INFO - Extracted TON seven days percentage change - 3.21
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - TRON
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - TRX
+2024/10/22 07:06:06 PM - INFO - Extracted TRX crypto_market_cap - 13559310138.98
+2024/10/22 07:06:06 PM - INFO - Extracted TRX crypto_price - 0.1567
+2024/10/22 07:06:06 PM - INFO - Extracted TRX crypto_volume - 206835223.82
+2024/10/22 07:06:06 PM - INFO - Extracted TRX one hour percentage change - -0.06
+2024/10/22 07:06:06 PM - INFO - Extracted TRX twenty four hour percentage change - -0.11
+2024/10/22 07:06:06 PM - INFO - Extracted TRX seven days percentage change - -3.62
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Cardano
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - ADA
+2024/10/22 07:06:06 PM - INFO - Extracted ADA crypto_market_cap - 12760053552.64
+2024/10/22 07:06:06 PM - INFO - Extracted ADA crypto_price - 0.3648
+2024/10/22 07:06:06 PM - INFO - Extracted ADA crypto_volume - 202078470.02
+2024/10/22 07:06:06 PM - INFO - Extracted ADA one hour percentage change - -0.06
+2024/10/22 07:06:06 PM - INFO - Extracted ADA twenty four hour percentage change - 3.75
+2024/10/22 07:06:06 PM - INFO - Extracted ADA seven days percentage change - 4.83
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Avalanche
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - AVAX
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX crypto_market_cap - 11773530008.90
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX crypto_price - 28.94
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX crypto_volume - 170244985.60
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX one hour percentage change - 0.45
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX twenty four hour percentage change - 2.94
+2024/10/22 07:06:06 PM - INFO - Extracted AVAX seven days percentage change - -0.81
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Shiba Inu
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - SHIB
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB crypto_market_cap - 11207284576.06
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB crypto_price - 0.00001902
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB crypto_volume - 261222261.26
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB one hour percentage change - -0.54
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB twenty four hour percentage change - -0.10
+2024/10/22 07:06:06 PM - INFO - Extracted SHIB seven days percentage change - 8.02
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Chainlink
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - LINK
+2024/10/22 07:06:06 PM - INFO - Extracted LINK crypto_market_cap - 7498874354.53
+2024/10/22 07:06:06 PM - INFO - Extracted LINK crypto_price - 11.96
+2024/10/22 07:06:06 PM - INFO - Extracted LINK crypto_volume - 203541678.86
+2024/10/22 07:06:06 PM - INFO - Extracted LINK one hour percentage change - -0.15
+2024/10/22 07:06:06 PM - INFO - Extracted LINK twenty four hour percentage change - 4.74
+2024/10/22 07:06:06 PM - INFO - Extracted LINK seven days percentage change - 11.47
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Bitcoin Cash
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - BCH
+2024/10/22 07:06:06 PM - INFO - Extracted BCH crypto_market_cap - 7304782696.92
+2024/10/22 07:06:06 PM - INFO - Extracted BCH crypto_price - 369.36
+2024/10/22 07:06:06 PM - INFO - Extracted BCH crypto_volume - 233339219.07
+2024/10/22 07:06:06 PM - INFO - Extracted BCH one hour percentage change - 0.11
+2024/10/22 07:06:06 PM - INFO - Extracted BCH twenty four hour percentage change - 1.55
+2024/10/22 07:06:06 PM - INFO - Extracted BCH seven days percentage change - 15.00
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Polkadot
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - DOT
+2024/10/22 07:06:06 PM - INFO - Extracted DOT crypto_market_cap - 6895428795.01
+2024/10/22 07:06:06 PM - INFO - Extracted DOT crypto_price - 4.5717
+2024/10/22 07:06:06 PM - INFO - Extracted DOT crypto_volume - 116461746.43
+2024/10/22 07:06:06 PM - INFO - Extracted DOT one hour percentage change - -0.19
+2024/10/22 07:06:06 PM - INFO - Extracted DOT twenty four hour percentage change - 3.11
+2024/10/22 07:06:06 PM - INFO - Extracted DOT seven days percentage change - 9.97
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - NEAR Protocol
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - NEAR
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR crypto_market_cap - 6042997938.95
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR crypto_price - 4.9712
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR crypto_volume - 204968658.61
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR one hour percentage change - -0.43
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR twenty four hour percentage change - 3.14
+2024/10/22 07:06:06 PM - INFO - Extracted NEAR seven days percentage change - 5.90
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Sui
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - SUI
+2024/10/22 07:06:06 PM - INFO - Extracted SUI crypto_market_cap - 5880005309.88
+2024/10/22 07:06:06 PM - INFO - Extracted SUI crypto_price - 2.1275
+2024/10/22 07:06:06 PM - INFO - Extracted SUI crypto_volume - 572459381.84
+2024/10/22 07:06:06 PM - INFO - Extracted SUI one hour percentage change - -0.73
+2024/10/22 07:06:06 PM - INFO - Extracted SUI twenty four hour percentage change - 3.10
+2024/10/22 07:06:06 PM - INFO - Extracted SUI seven days percentage change - -9.15
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - UNUS SED LEO
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - LEO
+2024/10/22 07:06:06 PM - INFO - Extracted LEO crypto_market_cap - 5623715413.88
+2024/10/22 07:06:06 PM - INFO - Extracted LEO crypto_price - 6.0784
+2024/10/22 07:06:06 PM - INFO - Extracted LEO crypto_volume - 8265594.67
+2024/10/22 07:06:06 PM - INFO - Extracted LEO one hour percentage change - -0.27
+2024/10/22 07:06:06 PM - INFO - Extracted LEO twenty four hour percentage change - -0.16
+2024/10/22 07:06:06 PM - INFO - Extracted LEO seven days percentage change - -0.39
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_name - Litecoin
+2024/10/22 07:06:06 PM - INFO - Extracted crypto_symbol - LTC
+2024/10/22 07:06:06 PM - INFO - Extracted LTC crypto_market_cap - 5581287607.76
+2024/10/22 07:06:06 PM - INFO - Extracted LTC crypto_price - 74.31
+2024/10/22 07:06:06 PM - INFO - Extracted LTC crypto_volume - 267425993.44
+2024/10/22 07:06:06 PM - INFO - Extracted LTC one hour percentage change - 0.15
+2024/10/22 07:06:06 PM - INFO - Extracted LTC twenty four hour percentage change - -0.75
+2024/10/22 07:06:06 PM - INFO - Extracted LTC seven days percentage change - 14.76
+2024/10/22 07:06:06 PM - INFO - Data has been scraped from coinmarketcap
+2024/10/22 07:06:07 PM - DEBUG - STREAM b'IHDR' 16 13
+2024/10/22 07:06:07 PM - DEBUG - STREAM b'tEXt' 41 57
+2024/10/22 07:06:07 PM - DEBUG - STREAM b'pHYs' 110 9
+2024/10/22 07:06:07 PM - DEBUG - STREAM b'IDAT' 131 57351
+2024/10/22 07:06:07 PM - INFO - Data has been pushed to postgres
+2024/10/22 07:15:36 PM - INFO - Data has been scraped from coinmarketcap
+2024/10/22 07:15:36 PM - DEBUG - STREAM b'IHDR' 16 13
+2024/10/22 07:15:36 PM - DEBUG - STREAM b'tEXt' 41 57
+2024/10/22 07:15:36 PM - DEBUG - STREAM b'pHYs' 110 9
+2024/10/22 07:15:36 PM - DEBUG - STREAM b'IDAT' 131 57351

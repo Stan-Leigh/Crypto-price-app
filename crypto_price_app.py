@@ -3,10 +3,15 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import base64
+import os
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 import datetime
+import psycopg2
+from sqlalchemy import create_engine
+from configparser import ConfigParser
+import logging, logging.handlers
 #---------------------------------#
 # New feature (make sure to upgrade your streamlit library)
 # pip install --upgrade streamlit
@@ -57,6 +62,36 @@ idx = (today.weekday() + 1) % 7
 sun = today - datetime.timedelta(idx)
 date = str(sun).replace('-', '')
 
+# Create a log file and write errors to it
+logpath = f'./log/{datetime.datetime.now().strftime("%Y")}/{datetime.datetime.now().strftime("%Y-%m")}'
+if not os.path.exists(logpath):
+    os.makedirs(logpath)
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    datefmt='%Y/%m/%d %I:%M:%S %p',
+                    handlers=[
+            logging.FileHandler(f'{logpath}/{datetime.datetime.now().strftime("%Y-%m-%d")}.log')
+        ])
+
+# Function to delete logs older than 14 days
+def delete_old_logs(log_directory):
+    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=14)
+    for year_log_folder in os.listdir("log"):
+        for month_log_folder in os.listdir(f"log/{year_log_folder}"):
+            for log_file in os.listdir(f"log/{year_log_folder}/{month_log_folder}"):
+                if log_file.endswith(".log"):
+                    file_date_str = log_file.split(".")[0]
+                    file_date = datetime.datetime.strptime(file_date_str, "%Y-%m-%d")
+                    if file_date < cutoff_date:
+                        os.remove(os.path.join(log_directory, log_file))
+                        logging.info(f"Deleted log file: {log_file}")
+
+
+# Delete logs older than 14 days
+delete_old_logs(logpath)
+
+
 # Web scraping of CoinMarketCap data
 @st.cache_data
 def load_data():
@@ -96,41 +131,52 @@ def load_data():
         # find the td element (or column) to later get the cryptocurrency name
         name_column = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sticky cmc-table__cell--sortable cmc-table__cell--left cmc-table__cell--sort-by__name'})
         crypto_name = name_column.find('a', attrs={'class': 'cmc-table__column-name--name cmc-link'}).text.strip()
+        logging.info(f"Extracted crypto_name - {crypto_name}")
         crypto_symbol = name_column.find('a', attrs={'class': 'cmc-table__column-name--symbol cmc-link'}).text.strip()
+        logging.info(f"Extracted crypto_symbol - {crypto_symbol}")
 
         # market cap
         crypto_market_cap = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__market-cap'}).text.strip().lstrip('$').replace(',', '')
+        logging.info(f"Extracted {crypto_symbol} crypto_market_cap - {crypto_market_cap}")
 
         # price
         crypto_price = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__price'}).text.strip().lstrip('$').replace(',', '')
+        logging.info(f"Extracted {crypto_symbol} crypto_price - {crypto_price}")
 
         # volume(24h)
         vol_column = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__volume-24-h'})
         crypto_volume = vol_column.find('a', attrs={'class': 'cmc-link'}).text.strip().lstrip('$').replace(',', '')
+        logging.info(f"Extracted {crypto_symbol} crypto_volume - {crypto_volume}")
 
         # percent 1h
         percent_1h = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-1-h'})
         crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_1h is None:
             crypto_percent_1h = percent_1h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} one hour percentage change - {crypto_percent_1h}")
         else:
             crypto_percent_1h = crypto_percent_1h.get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} one hour percentage change - {crypto_percent_1h}")
 
         # percent 24h
         percent_24h = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-24-h'})
         crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_24h is None:
             crypto_percent_24h = percent_24h.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} twenty four hour percentage change - {crypto_percent_24h}")
         else:
             crypto_percent_24h = crypto_percent_24h.get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} twenty four hour percentage change - {crypto_percent_24h}")
 
         # percent 7d
         percent_7d = row.find('td', attrs={'class': 'cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-7-d'})
         crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-negative'})
         if crypto_percent_7d is None:
             crypto_percent_7d = percent_7d.find('div', attrs={'class': 'cmc--change-positive'}).get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} seven days percentage change - {crypto_percent_7d}")
         else:
             crypto_percent_7d = crypto_percent_7d.get_text().lstrip('<').rstrip('%').replace(',', '')
+            logging.info(f"Extracted {crypto_symbol} seven days percentage change - {crypto_percent_7d}")
 
         coin_name.append(crypto_name)
         coin_symbol.append(crypto_symbol)
@@ -141,7 +187,7 @@ def load_data():
         price.append(crypto_price)
         volume_24h.append(crypto_volume)
 
-    df = pd.DataFrame(columns=['coin_name', 'coin_symbol', 'market_cap', 'percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'price', 'volume_24h'])
+    df = pd.DataFrame(columns=['date', 'coin_name', 'coin_symbol', 'price', 'market_cap', 'volume_24h', 'percent_change_1h', 'percent_change_24h', 'percent_change_7d'])
     df['coin_name'] = coin_name
     df['coin_symbol'] = coin_symbol
     df['price'] = price
@@ -155,7 +201,10 @@ def load_data():
     df = df.astype(convert_dict)
     return df
 
+
 df = load_data()
+df['date'] = datetime.datetime.now()
+logging.info('Data has been scraped from coinmarketcap')
 
 ## Sidebar - Cryptocurrency selections
 sorted_coin = sorted( df['coin_symbol'] )
@@ -229,3 +278,37 @@ else:
     plt.subplots_adjust(top = 1, bottom = 0)
     df_change['percent_change_1h'].plot(kind='barh', color=df_change.positive_percent_change_1h.map({True: 'g', False: 'r'}))
     col3.pyplot(plt)
+
+
+def push_data_to_postgres(df):
+
+    config = ConfigParser()
+    config.read('config.ini')
+    
+    # Parameters for connecting to PostgreSQL
+    # db_user = config.get('postgres', 'db_user')
+    # db_password = config.get('postgres', 'db_password')
+    # db_host = config.get('postgres', 'db_host')
+    # db_port = config.get('postgres', 'db_port')
+    # db_name = config.get('postgres', 'db_name')
+    # schema_name = config.get('postgres', 'schema_name')
+    # table_name = config.get('postgres', 'table_name')
+    db_user = st.secrets('db_user')
+    db_password = st.secrets('db_password')
+    db_host = st.secrets('db_host')
+    db_port = st.secrets('db_port')
+    db_name = st.secrets('db_name')
+    schema_name = st.secrets('schema_name')
+    table_name = st.secrets('table_name')
+
+    # Create a connection string for SQLAlchemy
+    connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
+
+    # Create a SQLAlchemy engine
+    engine = create_engine(connection_string)
+
+    df.to_sql(table_name, engine, schema=schema_name, if_exists='append', index=False)
+
+
+push_data_to_postgres(df)
+logging.info('Data has been pushed to postgres')
