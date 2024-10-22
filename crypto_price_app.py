@@ -293,13 +293,13 @@ def push_data_to_postgres(df):
     # db_name = config.get('postgres', 'db_name')
     # schema_name = config.get('postgres', 'schema_name')
     # table_name = config.get('postgres', 'table_name')
-    db_user = st.secrets('db_user')
-    db_password = st.secrets('db_password')
-    db_host = st.secrets('db_host')
-    db_port = st.secrets('db_port')
-    db_name = st.secrets('db_name')
-    schema_name = st.secrets('schema_name')
-    table_name = st.secrets('table_name')
+    db_user = st.secrets['db_user']
+    db_password = st.secrets['db_password']
+    db_host = st.secrets['db_host']
+    db_port = st.secrets['db_port']
+    db_name = st.secrets['db_name']
+    schema_name = st.secrets['schema_name']
+    table_name = st.secrets['table_name']
 
     # Create a connection string for SQLAlchemy
     connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
