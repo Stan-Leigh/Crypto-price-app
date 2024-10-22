@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 import datetime
-import psycopg2
+# import psycopg2
 from sqlalchemy import create_engine
 from configparser import ConfigParser
 import logging, logging.handlers
