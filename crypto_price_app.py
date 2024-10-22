@@ -76,7 +76,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 # Function to delete logs older than 14 days
 def delete_old_logs(log_directory):
-    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=14)
+    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=60)
     for year_log_folder in os.listdir("log"):
         for month_log_folder in os.listdir(f"log/{year_log_folder}"):
             for log_file in os.listdir(f"log/{year_log_folder}/{month_log_folder}"):
